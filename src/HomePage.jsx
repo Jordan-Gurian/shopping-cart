@@ -6,7 +6,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <ToolBar />
+      <ToolBar numItems={0}/>
       <h1>Hello from home page!</h1>
     </div>
   );

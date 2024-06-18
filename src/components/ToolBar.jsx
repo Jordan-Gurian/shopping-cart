@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const ToolBar = () => {
+const ToolBar = (props) => {
 
   return(
     <nav>
@@ -11,6 +11,9 @@ const ToolBar = () => {
         </li>
         <li>
           <Link to="/cart">Cart page</Link>
+        </li>
+        <li>
+          <p>Total items: {props.numItems}</p>
         </li>
       </ul>
     </nav>
