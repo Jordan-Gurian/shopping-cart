@@ -1,22 +1,16 @@
-import { useParams } from "react-router-dom";
-import { useState } from  "react";
-import ToolBar from "./components/ToolBar.jsx"
-import Apple from "./components/Apple.jsx"
+import AllProducts from "./components/AllProducts.jsx"
 
-const HomePage = () => {
-
-  const [numItems, setNumItems] = useState(0);
+const HomePage = (props) => {
 
   const handleDataToParent = (e) => {
     e.preventDefault();
-    setNumItems(numItems + Number(e.target[0].value));
+    props.pageToParent(Number(e.target[0].value));
   }
 
   return (
     <div>
-      <ToolBar numItems={numItems}/>
       <h1>Hello from home page!</h1>
-      <Apple childToParent={handleDataToParent} />
+        <AllProducts childToParent={handleDataToParent} />
     </div>
   );
 };

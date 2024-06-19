@@ -1,7 +1,6 @@
 import App from "./App";
 import ErrorPage from "./ErrorPage";
-import HomePage from "./HomePage";
-import CartPage from "./CartPage";
+import Pages from "./Pages";
 
 
 const routes = [
@@ -11,12 +10,8 @@ const routes = [
     errorElement: <ErrorPage />,
   },
   {
-    path: "/home",
-    element: <HomePage />,
-  },
-  {
-    path: "/cart",
-    element: <CartPage />,
+    path: "/:name",
+    element: <Pages />,
   },
 ];
 
