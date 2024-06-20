@@ -1,16 +1,27 @@
-import AllProducts from "./components/AllProducts.jsx"
-
 const HomePage = (props) => {
 
-  const handleDataToParent = (e) => {
-    e.preventDefault();
-    props.pageToParent(Number(e.target[0].value));
-  }
+  if (props.loading) return <p>Loading...</p>;
+  if (props.error) return <p>A network error was encountered</p>;
 
   return (
     <div>
       <h1>Hello from home page!</h1>
-        <AllProducts childToParent={handleDataToParent} />
+      <article>
+      {props.products.map((item)=>
+        <div class="product" id={item.id}>
+          <img src={item.image} height="200px"/>
+            <h1>{item.title}</h1>
+            <p>Price: ${item.price}</p>
+            <p>Category: {item.category}</p>
+            <p>{item.description}</p>
+          <form onSubmit={props.pageToParent}>
+            <label>QTY:</label>
+            <input type="number" id={item.id} />
+            <button type="submit">Add to Cart</button>
+          </form>
+      </div>
+      )}
+    </article>
     </div>
   );
 };

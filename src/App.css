@@ -5,6 +5,17 @@
   text-align: center;
 }
 
+nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.product {
+  margin: 20px;
+  background-color: aliceblue;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
