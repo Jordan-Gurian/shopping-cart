@@ -14,7 +14,10 @@ const useProductURL = () => {
         }
         return response.json();
       })
-      .then((response) => setProductData(response))
+      .then((response) => {
+        response.map((item) => item.price = Number(item.price).toFixed(2));
+        setProductData(response);
+      })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
