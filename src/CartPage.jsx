@@ -22,7 +22,7 @@ const CartPage = (props) => {
         </div>
       )}
       <h1>Total Price: ${Number(totalPrice).toFixed(2)}</h1>
-      <button>Checkout & Pay</button>
+      <button onClick={props.clearCart}>Checkout & Pay</button>
     </div>
   );
 };

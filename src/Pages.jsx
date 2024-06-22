@@ -13,6 +13,10 @@ const Pages = () => {
 
   const { productData, error, loading } = useProductURL();
 
+  const clearCart = () => {
+    setCartItems([])
+    setNumItems(0)
+  }
 
   function handleDataToPages(e) {
     e.preventDefault();
@@ -34,7 +38,7 @@ const Pages = () => {
       {name === "home" ? (
         <HomePage pageToParent={handleDataToPages} products={productData} loading={loading} error={error}/>
       ) : name === "cart" ? (
-        <CartPage pageToParent={handleDataToPages} items={cartItems} products={productData}/>
+        <CartPage pageToParent={handleDataToPages} items={cartItems} products={productData} clearCart={clearCart}/>
       ) : (
         <HomePage pageToParent={handleDataToPages} products={productData} load={loading} error={error}/>
       )}
