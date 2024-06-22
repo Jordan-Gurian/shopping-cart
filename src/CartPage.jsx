@@ -3,10 +3,16 @@ import useProductURL from "./useProductURL.jsx"
 const CartPage = (props) => {
 
   const products = props.products;
+  let totalPrice = 0;
+
+
+  props.items.map((item)=> 
+    totalPrice += products[products.findIndex(x => x.id === item[0])].price * item[1]
+    );
 
   return (
     <div>
-      <h1>Hello from cart page!</h1>
+      <h1>Cart page!</h1>
       {props.items.map((item)=>      
         <div class="product" id={products[products.findIndex(x => x.id === item[0])].id}>
         <img src={products[products.findIndex(x => x.id === item[0])].image} height="200px"/>
@@ -15,6 +21,7 @@ const CartPage = (props) => {
           <p>QTY: {item[1]}</p>
         </div>
       )}
+      <h1>Total Price: ${totalPrice}</h1>
       <button>Checkout & Pay</button>
     </div>
   );

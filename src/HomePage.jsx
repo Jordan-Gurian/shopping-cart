@@ -5,7 +5,7 @@ const HomePage = (props) => {
 
   return (
     <div>
-      <h1>Hello from home page!</h1>
+      <h1>Home page!</h1>
       <article>
       {props.products.map((item)=>
         <div class="product" id={item.id}>
@@ -16,7 +16,7 @@ const HomePage = (props) => {
             <p>{item.description}</p>
           <form onSubmit={props.pageToParent}>
             <label>QTY:</label>
-            <input type="number" id={item.id} />
+            <input type="number" id={item.id} min={0} />
             <button type="submit">Add to Cart</button>
           </form>
       </div>
